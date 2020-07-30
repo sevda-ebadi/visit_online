@@ -26,7 +26,7 @@ class SocialController extends Controller
         $this->createPatient($user);
 
         session()->flash('success_message', ' کاربر گرامی  '.$user->name.' ثبت نام/ورود شما  توسط سوشیال مدیا با موفقیت انجام شد ');
-        return redirect()->route('clinics.index');
+        return redirect()->route('site_index');
     }
 
 

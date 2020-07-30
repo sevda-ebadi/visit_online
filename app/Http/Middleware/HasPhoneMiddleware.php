@@ -19,7 +19,7 @@ class HasPhoneMiddleware
             return $next($request);
         } else {
             session()->flash('success_message', ' کاربر گرامی  '.auth()->user()->name.'برای شما شماره تماسی ثبت نشده .(در قسمت ویرایش پروایل اقدام به افزودن شماره تماس کنید) ');
-            return redirect()->route('clinics.index');
+            return redirect()->route('site_index');
         }
     }
 }

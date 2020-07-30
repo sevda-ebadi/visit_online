@@ -48,8 +48,15 @@
                                 <h6 style="text-align:center"><b>برای تایید کلیک کنید.</b></h6>
 
                             </a>
-                            
+
                         @endif -->
+
+                        @if(session()->has('mustVerifyEmail'))
+                            <div style="text-align:center">
+                                <p>ایمیل شما تایید نشده است</p>
+                                <a href="{{ route('test') }}">تاییدیه ایمیل</a>
+                            </div>
+                        @endif
 
                         @if(!auth()->user()->has_two_factor)
                             <a style="direction: rtl" href="{{ route('auth.two.factor.toggle') }}" class="dropdown-item"><i class="typcn typcn-user-outline"></i>اهراز هویت دو مرحله ای</a>
@@ -137,6 +144,8 @@
             <li class="nav-item @if(isset($title)) @if($title == 'medicines') active @endif @endif">
                 <a href="{{ route('medicines.index') }}" class="nav-link"> دارو ها <i class="typcn typcn-th-menu-outline"></i></a>
             </li>
+
+
             @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('hospital_admin'))
                 <li class="nav-item @if(isset($title)) @if($title == 'salaries') active @endif @endif">
                     <a href="{{ route('salaries.index') }}" class="nav-link"> حقوق ها <i class="typcn typcn-th-large"></i></a>

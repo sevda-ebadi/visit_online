@@ -19,7 +19,7 @@ class TwoFactorMiddleware
             return $next($request);
         } else {
             session()->flash('success_message', ' کاربر گرامی  '.$request->user()->name.' اکانت شما فعال شده است ');
-            return redirect()->route('clinics.index');
+            return redirect()->route('site_index');
         }
     }
 }

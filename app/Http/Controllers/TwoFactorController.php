@@ -50,7 +50,7 @@ class TwoFactorController extends Controller
 
         // redirect
         session()->flash('success_message', 'اکانت شما تایید شد متشکریم');
-        return redirect()->route('clinics.index');
+        return redirect()->route('site_index');
     }
 
     protected function validateCode(Request $request)

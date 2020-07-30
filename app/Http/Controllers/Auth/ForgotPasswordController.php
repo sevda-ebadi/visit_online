@@ -38,7 +38,7 @@ class ForgotPasswordController extends Controller
 
         if ($response == Password::RESET_LINK_SENT) {
             session()->flash('success_message', 'لینک تغییر رمز عبور با موفقیت ارسال شد.');
-            return redirect()->route('clinics.index');
+            return redirect()->route('site_index');
         }
 
         // redirect

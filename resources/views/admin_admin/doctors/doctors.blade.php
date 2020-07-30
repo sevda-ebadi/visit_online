@@ -20,7 +20,7 @@
                     <tr>
                     @role('admin')
                         <th class="wd-15p">عملیات ها</th>
-                     @endrole   
+                     @endrole
                         <th class="wd-15p">شماره تماس</th>
                         <th class="wd-15p">جنسیت</th>
                         <th class="wd-15p">سن</th>
@@ -35,17 +35,17 @@
                         @foreach($doctors as $doctor)
                             <tr>
 
-                                <td>
+                                {{--<td>
                                    @role('admin')
-                                   
+
                                     <button onclick="window.location='{{ route('doctor_salary', ['doctor_id'=>$doctor->id]) }}'" class="btn btn-primary btn-rounded">حقوق ها</button>
                                     <button onclick="window.location='{{ route('doctors.edit', ['doctor'=>$doctor]) }}'" class="btn btn-warning btn-rounded">ویرایش</button>
                                     <form method="post" action="{{ route('doctors.destroy', ['doctor'=>$doctor]) }}" style="display: inline;">@csrf @method('DELETE')<button type="submit" class="btn btn-danger btn-rounded">حذف</button></form>
 
-                                    
+
                                     @endrole
-                                
-                                </td>
+
+                                </td>--}}
 
                                 <td>{{ $doctor->user()->first()->phone }}</td>
                                 <td>{{ checkGender($doctor->user()->first()->sex) }}</td>

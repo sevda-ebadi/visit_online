@@ -74,7 +74,7 @@ class LoginController extends Controller
         $request->validate([
             'email' => ['required', 'email', 'exists:users'],
             'password'=>['required'],
-            'g-recaptcha-response'=>['required', new Recaptcha],
+            //'g-recaptcha-response'=>['required', new Recaptcha],
         ]);
     }
 
@@ -90,7 +90,7 @@ class LoginController extends Controller
 
         if(auth()->user()->roles()->first() != null) {
             if (auth()->user()->roles()->first()->name == "admin") {
-                
+
                 return redirect()->route('clinics.index');
             }
         }

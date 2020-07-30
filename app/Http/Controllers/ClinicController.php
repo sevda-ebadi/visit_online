@@ -19,13 +19,23 @@ class ClinicController extends Controller
     {
         //
 
-        try {
-            $clinics =  Clinic::all();
-            $title = 'clinics';
-            return view('admin_admin/clinics/clinics', ['clinics'=>$clinics, 'title'=>$title]);
-        } catch (\Exception $e) {
-            $this->exceptions->report($e);
-        }
+
+        if(auth()->user()->roles()->first() != null) {
+                    if (auth()->user()->roles()->first()->name == "admin") {
+
+                        try {
+                                    $clinics =  Clinic::all();
+                                    $title = 'clinics';
+                                    return view('admin_admin/clinics/clinics', ['clinics'=>$clinics, 'title'=>$title]);
+                                } catch (\Exception $e) {
+                                    $this->exceptions->report($e);
+                                }
+                    }
+                }
+
+                return redirect()->route('site_index');
+
+
     }
 
     /**
